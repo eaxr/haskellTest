@@ -3,8 +3,8 @@ module Main where
 import System.IO  
 import Control.Monad
 
-toList :: String -> [Integer]
-toList input = read ("[" ++ input ++ "]")
+toInt :: String -> Int
+toInt = read
 
 list = [1..5]
 finalize :: Int -> [(Int,Int,Int)]
@@ -20,5 +20,8 @@ main = do
     putStr "Выбрано значение из конфигурационного файла: "
     file <- readFile "config.ini"
     print file
+    putStrLn "Введите число: "
+    num <- getLine
+    let y = toInt num
     let x = read file :: Int
-    print $ finalize x
+    print $ finalize (x + y)
