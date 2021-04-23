@@ -1,1 +1,1 @@
-![alt text](https://github.com/eaxr/haskellTest/blob/main/haskellTest.PNG?raw=true)
+![alt text](https://github.com/eaxr/haskellTest/blob/main/hsTest.PNG?raw=true)
