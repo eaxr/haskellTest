@@ -1,25 +1,24 @@
 module Main where
 
-import Control.Monad (guard)
+import System.IO  
+import Control.Monad
 
 toList :: String -> [Integer]
 toList input = read ("[" ++ input ++ "]")
 
-list = [1..20]
-finalize :: [(Int,Int,Int)]
-finalize = do
+list = [1..5]
+finalize :: Int -> [(Int,Int,Int)]
+finalize input = do
               x <- list
               y <- list
               z <- list
-              guard $ 1*x + 2*y + 3*x*y < z
+              let z = input*x + input*y + input*x*y
               return (x,y,z)
 
 main :: IO ()
 main = do
-    putStr "Выбран конфигурационный файл:"
+    putStr "Выбрано значение из конфигурационного файла: "
     file <- readFile "config.ini"
-    putStr file
-    putStrLn "\nВведите число:"
-    input <- getLine
-    print $ sum (toList input)
-    print finalize
+    print file
+    let x = read file :: Int
+    print $ finalize x
